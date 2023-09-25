@@ -24,7 +24,11 @@ const Header: React.FC = () => {
             </li>
 
             <li>
-              <a href='#'>Username</a>
+              <a href='#' className={styles.username}>
+                <img className={styles.human} src='images/human.svg' alt='' />{' '}
+                Username
+                <img className={styles.expand} src='images/expand.svg' alt='' />
+              </a>
             </li>
             <li>
               <a href='#'>
