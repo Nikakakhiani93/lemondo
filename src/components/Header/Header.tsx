@@ -3,42 +3,79 @@ import styles from './Header.module.scss';
 
 const Header: React.FC = () => {
   return (
-    <div className={styles.header}>
-      <header className={styles.header_nav}>
-        <div className={styles.logo}>
-          <a href='#'>
-            <img src='images/logo.svg' alt='' />
-          </a>
-        </div>
-        <nav className={styles.nav}>
-          <ul>
-            <li>
-              <a href='#'>
-                <img src='images/notification.svg' alt='' />
-              </a>
-            </li>
-            <li>
-              <a href='#'>
-                <img src='images/cart.svg' alt='' />
-              </a>
-            </li>
+    <>
+      <div className={styles.header}>
+        <header className={styles.header_nav}>
+          <div className={styles.logo}>
+            <a href='#'>
+              <img src='images/logo.svg' alt='' />
+            </a>
+          </div>
+          <nav className={styles.nav}>
+            <ul>
+              <li>
+                <a href='#'>
+                  <img src='images/notification.svg' alt='' />
+                </a>
+              </li>
+              <li>
+                <a href='#'>
+                  <img src='images/cart.svg' alt='' />
+                </a>
+              </li>
 
-            <li>
-              <a href='#' className={styles.username}>
-                <img className={styles.human} src='images/human.svg' alt='' />{' '}
-                Username
-                <img className={styles.expand} src='images/expand.svg' alt='' />
-              </a>
-            </li>
-            <li>
-              <a href='#'>
-                <img src='images/flag.svg' alt='' />
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-    </div>
+              <li>
+                <a href='#' className={styles.username}>
+                  <img className={styles.human} src='images/human.svg' alt='' />{' '}
+                  Username
+                  <img
+                    className={styles.expand}
+                    src='images/expand.svg'
+                    alt=''
+                  />
+                </a>
+              </li>
+              <li>
+                <a href='#'>
+                  <img src='images/flag.svg' alt='' />
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+
+      <div className={styles.header_mob}>
+        <header className={styles.header_nav__mobile}>
+          <div className={styles.logo_mob}>
+            <a href='#'>
+              <img className={styles.burger} src='images/burger.svg' alt='' />
+              <img src='images/logo.svg' alt='' />
+            </a>
+          </div>
+          <nav>
+            <ul>
+              <li>
+                <a href='#'>
+                  <img src='images/notification.svg' alt='' />
+                </a>
+              </li>
+              <li>
+                {' '}
+                <a href='#'>
+                  <img src='images/cart.svg' alt='' />
+                </a>
+              </li>
+              <li>
+                <a href='#' className={styles.username}>
+                  <img src='images/human.svg' alt='' />
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+    </>
   );
 };
 
