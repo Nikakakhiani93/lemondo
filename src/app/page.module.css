@@ -1,7 +1,16 @@
 .main {
-  max-width: 1440px;
-  display: block;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.navContainer {
+  display: flex;
+  max-width: 1440px;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  margin: 90px auto 0;
+  padding: 19px 21px;
 }

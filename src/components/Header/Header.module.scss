@@ -4,6 +4,7 @@
   left: 0;
   z-index: 9;
   width: 100vw;
+  border-bottom: 1px solid #fafafb;
 }
 
 .header_nav {
@@ -12,12 +13,13 @@
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
-  padding: 10px 30px;
+  padding: 19px 21px;
   margin: 0 auto;
 }
 
 .logo {
   a img {
+    display: flex;
     width: 182px;
     height: 32px;
     font-size: 24px;
@@ -26,6 +28,8 @@
 
 .nav {
   ul {
+    margin: 0;
+    padding: 0;
     list-style-type: none;
     display: flex;
 
@@ -64,7 +68,7 @@
   }
 }
 
-@media (max-width: 819px) {
+@media (max-width: 990px) {
   .header {
     display: none;
   }
@@ -118,7 +122,7 @@
   }
 }
 
-@media (min-width: 820px) {
+@media (min-width: 989px) {
   .header_mob {
     display: none;
   }
