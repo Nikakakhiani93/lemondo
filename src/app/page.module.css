@@ -5,12 +5,16 @@
 }
 
 .navContainer {
-  display: flex;
-  max-width: 1440px;
-  align-items: center;
-  justify-content: space-between;
-  align-items: center;
   background-color: #fff;
   margin: 90px auto 0;
   padding: 19px 21px;
+}
+
+.navMenus {
+  max-width: 1440px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
 }

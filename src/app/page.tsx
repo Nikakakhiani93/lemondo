@@ -1,6 +1,7 @@
 import styles from './page.module.css';
 import Header from '../components/Header/Header';
 import StaticNavMenu from '@/components/Navmenu/navmenu';
+import Banner from '@/components/Mainbanner/Banner';
 
 export default function Home() {
   const container1Items = [
@@ -24,9 +25,12 @@ export default function Home() {
       <main className={styles.main}>
         <Header />
         <div className={styles.navContainer}>
-          <StaticNavMenu items={container1Items} />
-          <StaticNavMenu items={container2Items} />
+          <div className={styles.navMenus}>
+            <StaticNavMenu items={container1Items} />
+            <StaticNavMenu items={container2Items} />
+          </div>
         </div>
+        <Banner />
       </main>
     </>
   );
