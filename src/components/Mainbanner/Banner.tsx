@@ -1,12 +1,11 @@
 import react from 'react';
 import styles from './Banner.module.scss';
 
-import React from 'react';
-
 export default function Banner() {
   return (
-    <div>
-      <img className={styles.banner} src='images/banner.png' alt='banner' />
+    <div className={styles.bannerContainer}>
+      <div className={styles.banner}></div>
+      <p className={styles.textOnBanner}>გაყიდე და იყიდე დომენი მარტივად</p>
     </div>
   );
 }
