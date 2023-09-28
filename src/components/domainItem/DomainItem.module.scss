@@ -1,0 +1,22 @@
+.domainItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  // border-bottom: 2px solid #f1f1f5;
+
+  .nameSide {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: 20px;
+    }
+  }
+
+  .cartBtn {
+    display: flex;
+    align-items: center;
+  }
+}
