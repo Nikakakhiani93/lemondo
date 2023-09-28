@@ -1,0 +1,43 @@
+.domainSort {
+  max-width: 1286px;
+  margin: 0 auto;
+  padding: 0 21px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .onMarket {
+    b {
+      color: #696974;
+    }
+  }
+
+  b {
+    font-size: 14px;
+    color: #171725;
+  }
+
+  .sortItems {
+    span:active,
+    span:focus,
+    .active {
+      color: #99cc66;
+    }
+
+    span {
+      font-size: 14px;
+      color: #92929d;
+      img {
+        padding-left: 5px;
+      }
+    }
+
+    :not(:first-child) {
+      padding-left: 20px;
+    }
+
+    :nth-child(2) {
+      padding-left: 16px;
+    }
+  }
+}

@@ -1,7 +1,8 @@
 import styles from './page.module.css';
-import Header from '../components/Header/Header';
-import StaticNavMenu from '@/components/Navmenu/navmenu';
-import Banner from '@/components/Mainbanner/Banner';
+import Header from '../components/header/Header';
+import StaticNavMenu from '@/components/navmenu/navmenu';
+import Banner from '@/components/mainbanner/Banner';
+import DomainItems from '@/containers/domainItems/domainItems';
 
 export default function Home() {
   const container1Items = [
@@ -31,6 +32,7 @@ export default function Home() {
           </div>
         </div>
         <Banner />
+        <DomainItems />
       </main>
     </>
   );
