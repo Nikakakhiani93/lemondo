@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "domainName": "bidzo.org.ge",
+    "domain": ".org.ge",
+    "category": "ბიზნესი",
+    "priceGel": "40000",
+    "priceUsd": "9 285.7"
+  },
+  {
+    "id": 2,
+    "domainName": "lol.net.ge",
+    "domain": ".net.ge",
+    "category": "თამაშები",
+    "priceGel": "1990.90",
+    "priceUsd": "769.90"
+  },
+  {
+    "id": 3,
+    "domainName": "gijashvili.school.ge",
+    "domain": ".school.ge",
+    "category": "განათლება",
+    "priceGel": "7000.90",
+    "priceUsd": "2600"
+  },
+  {
+    "id": 4,
+    "domainName": "gijashvili.org.ge",
+    "domain": ".org.ge",
+    "category": "კომერცია",
+    "priceGel": "22 000.90",
+    "priceUsd": "9522.90 "
+  },
+  {
+    "id": 5,
+    "domainName": "myauto.com.ge",
+    "domain": ".com.ge",
+    "category": "ავტო",
+    "priceGel": "8900.80",
+    "priceUsd": "1887.90"
+  },
+  {
+    "id": 6,
+    "domainName": "evex.org.ge",
+    "domain": ".org.ge",
+    "category": "მედიცინა ",
+    "priceGel": "37 000",
+    "priceUsd": "16 000"
+  },
+  {
+    "id": 7,
+    "domainName": "mycomp.ge",
+    "domain": ".ge",
+    "category": "ტექნოლოგიები",
+    "priceGel": "6776",
+    "priceUsd": "2880"
+  },
+  {
+    "id": 8,
+    "domainName": "durdom.org.ge",
+    "domain": ".org.ge",
+    "category": "გართობა და დასვენება",
+    "priceGel": "12227",
+    "priceUsd": "5667"
+  },
+  {
+    "id": 9,
+    "domainName": "qoneba.com.ge",
+    "domain": ".com.ge",
+    "category": "უძრავი ქონება",
+    "priceGel": "18631",
+    "priceUsd": "8768"
+  },
+  {
+    "id": 10,
+    "domainName": "finance.net.ge",
+    "domain": ".net.ge",
+    "category": "ფინანსები",
+    "priceGel": "1211",
+    "priceUsd": "312"
+  },
+  {
+    "id": 11,
+    "domainName": "razer.org.ge",
+    "domain": ".org.ge",
+    "category": "ტექნოლოგიები",
+    "priceGel": "12 213",
+    "priceUsd": "3399"
+  },
+  {
+    "id": 12,
+    "domainName": "mycomp.org.ge",
+    "domain": ".org.ge",
+    "category": "ტექნოლოგიები",
+    "priceGel": "19 751",
+    "priceUsd": "11 134"
+  }
+]
