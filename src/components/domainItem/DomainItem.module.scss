@@ -1,5 +1,7 @@
 .domainItem {
-  width: 100%;
+  max-width: 1286px;
+  margin: 0 auto;
+  padding: 0 21px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,8 +17,50 @@
     }
   }
 
+  .amountSide {
+    display: flex;
+    align-items: center;
+
+    .domainPrice {
+      text-align: center;
+      .gel {
+        color: #171725;
+        font: 16px;
+        line-height: 22px;
+      }
+
+      .usd {
+        color: #696974;
+        font-size: 12px;
+        line-height: 22px;
+      }
+    }
+  }
+
   .cartBtn {
     display: flex;
     align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #99cc66;
+    transition: all 0.3s ease;
+
+    .addToCart,
+    .alreadyInCart {
+      display: none;
+    }
+
+    &:hover {
+      background-color: #99cc66;
+      width: 110px;
+
+      .addToCart {
+        display: block;
+        font-size: 14px;
+        color: #ffffff;
+        padding-right: 7px;
+      }
+    }
   }
 }

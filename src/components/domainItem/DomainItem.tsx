@@ -1,8 +1,25 @@
-import React from 'react';
+'use client';
+
+import React, { FC, useState } from 'react';
 import styles from './DomainItem.module.scss';
 import Image from 'next/image';
+import { Domain } from '@/core/types/domain.types';
 
-export default function DomainItem() {
+interface DomainProps {
+  value: Domain;
+}
+
+export const DomainItem: FC<DomainProps> = ({ value }) => {
+  const [onHover, setOnHover] = useState(false);
+
+  const handleTouch = () => {
+    setOnHover(true);
+  };
+
+  const handleLeave = () => {
+    setOnHover(false);
+  };
+
   return (
     <div className={styles.domainItem}>
       <div className={styles.nameSide}>
@@ -18,14 +35,18 @@ export default function DomainItem() {
           width={36}
           height={36}
         />
-        <span className={styles.domainName}>gijashvili.com.ge</span>
+        <span className={styles.domainName}>{value.domainName}</span>
       </div>
       <div className={styles.amountSide}>
         <div className={styles.domainPrice}>
-          <div className={styles.gel}>40 000 ₾</div>
-          <div className={styles.usd}> 14 285.7 $</div>
+          <div className={styles.gel}>{value.priceGel} ₾</div>
+          <div className={styles.usd}> {value.priceUsd} $</div>
         </div>
-        <div className={styles.cartBtn}>
+        <div
+          className={styles.cartBtn}
+          onMouseEnter={handleTouch}
+          onMouseOut={handleLeave}
+        >
           <>
             <Image
               src='../images/checkIcon.svg'
@@ -33,10 +54,10 @@ export default function DomainItem() {
               width={20}
               height={20}
             />
-            <span>კალათაშია</span>
+            <span className={styles.alreadyInCart}>კალათაშია</span>
           </>
           <>
-            <span>დამატება</span>
+            <span className={styles.addToCart}>დამატება</span>
             <Image
               src='../images/cartBtn.svg'
               alt='cartbtn'
@@ -48,4 +69,4 @@ export default function DomainItem() {
       </div>
     </div>
   );
-}
+};
