@@ -3,6 +3,7 @@ import Header from '../components/header/Header';
 import StaticNavMenu from '@/components/navmenu/Navmenu';
 import Banner from '@/components/mainbanner/Banner';
 import DomainItems from '@/containers/domainItems/DomainItems';
+import DomainSort from '@/components/domainSort/DomainSort';
 
 export default function Home() {
   const container1Items = [
@@ -32,6 +33,7 @@ export default function Home() {
           </div>
         </div>
         <Banner />
+        <DomainSort />
         <DomainItems />
       </main>
     </>

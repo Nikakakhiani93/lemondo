@@ -3,7 +3,7 @@
 import React, { FC, useState } from 'react';
 import styles from './DomainItem.module.scss';
 import Image from 'next/image';
-import { Domain } from '@/core/types/domain.types';
+import { Domain } from '@/app/core/types/domain.types';
 
 interface DomainProps {
   value: Domain;
@@ -21,27 +21,30 @@ export const DomainItem: FC<DomainProps> = ({ value }) => {
   };
 
   return (
-    <div className={styles.domainItem}>
-      <div className={styles.nameSide}>
-        <Image
-          src='../images/chevronDown.svg'
-          alt='chevronDown'
-          width={36}
-          height={36}
-        />
-        <Image
-          src='../images/chevronDownGrn.svg'
-          alt='chevronDown'
-          width={36}
-          height={36}
-        />
+    <div className={`${styles.domainItem} ${onHover ? styles.hoveredBcg : ''}`}>
+      <span className={styles.nameSide}>
+        {onHover ? (
+          <Image
+            src='../images/chevronDownGrn.svg'
+            alt='chevronDown'
+            width={36}
+            height={36}
+          />
+        ) : (
+          <Image
+            src='../images/chevronDown.svg'
+            alt='chevronDown'
+            width={36}
+            height={36}
+          />
+        )}
         <span className={styles.domainName}>{value.domainName}</span>
-      </div>
+      </span>
       <div className={styles.amountSide}>
-        <div className={styles.domainPrice}>
-          <div className={styles.gel}>{value.priceGel} ₾</div>
+        <span className={styles.domainPrice}>
+          <span className={styles.gel}>{value.priceGel} ₾</span>
           <div className={styles.usd}> {value.priceUsd} $</div>
-        </div>
+        </span>
         <div
           className={styles.cartBtn}
           onMouseEnter={handleTouch}

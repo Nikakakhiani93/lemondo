@@ -1,0 +1,30 @@
+.CategoryContainer {
+  width: 100%;
+  max-width: 238px;
+  margin-right: 20px;
+  padding: 10px 40px;
+  background: #fff;
+  border-radius: 15px;
+
+  span {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    color: #171d25;
+  }
+}
+
+.CategoryItems {
+  display: flex;
+  flex-direction: column;
+  margin-top: 21px;
+
+  label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #171d25;
+  }
+}
