@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import styles from '../app/globals.module.scss';
+import { CartProvider } from '../components/cart/cart';
 
 export const metadata: Metadata = {
   title: 'Domains Marketplace',
@@ -12,8 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
-      <body className={styles.whole}>{children}</body>
-    </html>
+    <CartProvider>
+      <html lang='en'>
+        <body className={styles.whole}>{children}</body>
+      </html>
+    </CartProvider>
   );
 }

@@ -1,15 +1,14 @@
 .domainItem {
-  max-width: 1286px;
-  margin: 0 auto;
-  padding: 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: transparent;
-  &.hoveredBackground {
-    background-color: #f5f5f8;
-    border-radius: 10px;
+  padding: 20px 0;
+
+  &.hoveredBg {
     padding: 20px 10px;
+    border-radius: 10px;
+    margin: 0 -10px;
+    background-color: #f5f5f8;
   }
 
   .nameSide {
@@ -28,6 +27,7 @@
     .domainPrice {
       text-align: end;
       margin-right: 21px;
+
       .gel {
         color: #171725;
         font-size: 16px;
@@ -41,31 +41,47 @@
       }
     }
   }
+}
 
-  .cartBtn {
+.cartBtn {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #99cc66;
+  transition: all 0.3s ease;
+
+  &:hover {
+    width: 110px;
     display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    background: #99cc66;
-    transition: all 0.3s ease;
+    justify-content: space-around;
+    background-color: #99cc66;
 
-    .addToCart,
+    .addToCart {
+      display: block;
+      font-size: 14px;
+      color: #ffffff;
+      padding-right: 7px;
+    }
+  }
+
+  &.mouseClick {
+    width: 110px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #f5f5f8;
+
     .alreadyInCart {
-      display: none;
+      display: block;
+      font-size: 14px;
+      color: #696974;
+      padding-left: 7px;
     }
+  }
 
-    &:hover {
-      background-color: #99cc66;
-      width: 110px;
-
-      .addToCart {
-        display: block;
-        font-size: 14px;
-        color: #ffffff;
-        padding-right: 7px;
-      }
-    }
+  .addToCart,
+  .alreadyInCart {
+    display: none;
   }
 }

@@ -1,7 +1,11 @@
+'use client';
+
 import React from 'react';
 import styles from './Header.module.scss';
+import { useCart } from '../cart/cart';
 
 const Header: React.FC = () => {
+  const { ItemCount } = useCart();
   return (
     <>
       <div className={styles.header}>
@@ -19,8 +23,9 @@ const Header: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href='#'>
+                <a href='#' className={styles.cart}>
                   <img src='images/cart.svg' alt='' />
+                  <div className={styles.cartBadge}>{ItemCount}</div>
                 </a>
               </li>
 
