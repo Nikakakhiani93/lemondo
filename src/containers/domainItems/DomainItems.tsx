@@ -2,16 +2,19 @@
 
 import React, { useEffect, useState } from 'react';
 import { Domain } from '@/app/core/types/domain.types';
-import DomainSort from '@/components/domainSort/DomainSort';
 import { DomainItem } from '@/components/domainItem/DomainItem';
 import { fetchDomain } from '@/app/core/services/domain.service';
 import styles from './DomainItems.module.scss';
-import WithCategory from '@/components/filter/withCategory/WithCategory';
 import FullFilter from '@/components/filter/fullFilter/FullFilter';
+import { IFilters } from '@/app/core/types/filter.types';
+import { filterDomains } from '@/app/core/helpers/filter';
+import DomainSort from '@/components/domainSort/DomainSort';
+import WithCategory from '@/components/filter/withCategory/WithCategory';
 
 export default function DomainItems() {
   const [domain, setDomain] = useState<Domain[]>([]);
   const [error, setError] = useState<Error | null>(null);
+  const [searchedItems, setSearchedItems] = useState<Domain[]>(domain);
 
   useEffect(() => {
     let isMounted = true;
@@ -19,8 +22,10 @@ export default function DomainItems() {
     async function getData() {
       try {
         const data = await fetchDomain();
+        // If component is mounted, update state with new data
         if (isMounted) {
           setDomain(data);
+          setSearchedItems(data);
         }
       } catch (err: any) {
         if (isMounted) {
@@ -36,17 +41,33 @@ export default function DomainItems() {
     };
   }, []);
 
+  const onSearch = (filters: IFilters) => {
+    // Filter the domain list based on the filters
+    const filterdList = filterDomains(domain, filters);
+    setSearchedItems(filterdList);
+  };
+
   return (
     <div className={styles.domainContainer}>
-      <FullFilter domain={domain} />
+      <FullFilter onSearch={onSearch} domain={domain} />
 
-      <div className={styles.domainItemsList}>
-        <div className={styles.listedItems}>
-          {domain.map((item) => (
-            <DomainItem value={item} key={item.id} />
-          ))}
+      {searchedItems.length > 0 ? (
+        <div className={styles.domainItemsList}>
+          <div className={styles.listedItems}>
+            {searchedItems.map((item) => (
+              <DomainItem value={item} key={item.id} />
+            ))}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className={styles.NoResults}>
+          <p>დომენი ვერ მოიძებნა</p>
+          <span>
+            მითითებული პარამეტრებით დომენების მარკეტში შედეგები ვერ მოიძებნა,
+            შეცვალეთ ძიების პარამეტრები და ცადეთ თავიდან
+          </span>
+        </div>
+      )}
     </div>
   );
 }
