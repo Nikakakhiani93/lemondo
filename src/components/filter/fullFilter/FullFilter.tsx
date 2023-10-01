@@ -13,9 +13,10 @@ interface FilterProps {
 }
 
 const FullFilter: React.FC<FilterProps> = ({ domain, onSearch }) => {
-  const [categories, setCategories] = useState<string[]>([]);
-  const [checkedCategories, setcheckedCategories] = useState<string[]>([]);
+  const [domains, setDomains] = useState<string[]>([]);
   const [search, setSearch] = useState('');
+  const [categories, setCategories] = useState<string[]>([]);
+  const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
   const [pureDomain, setPureDomain] = useState(domain);
   const [matchDomains, setMatchDomains] = useState<boolean>(true);
 
@@ -32,12 +33,12 @@ const FullFilter: React.FC<FilterProps> = ({ domain, onSearch }) => {
     const filter: IFilters = {
       search,
       // Filters to be passed to the API call
-      selectedCategories: [],
       selectedDomains: [],
+      checkedCategories: [],
     };
 
     onSearch(filter);
-  }, [domain, search, categories]);
+  }, [domain, search, checkedCategories]);
 
   // Handle search query
   const handleSearch = (query: string) => {
@@ -50,15 +51,30 @@ const FullFilter: React.FC<FilterProps> = ({ domain, onSearch }) => {
     setCategories(newCategories);
   }, [domain]);
 
+  useEffect(() => {
+    const uniqueDomains = [...new Set(domain.map((item) => item.domain))];
+    setDomains(uniqueDomains);
+  }, [domain]);
+
+  const handleCategoryChange = (category: string) => {
+    // If the category is already checked, uncheck it
+    if (checkedCategories.includes(category)) {
+      setCheckedCategories(checkedCategories.filter((c) => c !== category));
+
+      // Otherwise, check it
+    } else {
+      setCheckedCategories([...checkedCategories, category]);
+    }
+    // Scroll back to the top of the page once checked
+    window.scrollTo(0, 0);
+  };
   return (
     <div className={styles.allInOneFilters}>
       <WithName onSearch={handleSearch} />
       <WithCategory
         categories={categories}
         checkedCategories={checkedCategories}
-        onDropChange={function (category: string): void {
-          throw new Error('Function not implemented.');
-        }}
+        onDropChange={handleCategoryChange}
       />
     </div>
   );

@@ -1,5 +1,5 @@
 export interface IFilters {
-  selectedCategories: string[];
+  checkedCategories: any;
   selectedDomains: string[];
   search: string;
 }

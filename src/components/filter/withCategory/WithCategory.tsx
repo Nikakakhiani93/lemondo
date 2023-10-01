@@ -12,6 +12,8 @@ const WithCategory: React.FC<WithCategoryProps> = ({
   checkedCategories,
   onDropChange,
 }) => {
+  console.log(onDropChange);
+
   return (
     <div className={styles.CategoryContainer}>
       <span>კატეგორიები</span>
