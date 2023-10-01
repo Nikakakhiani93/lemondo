@@ -10,7 +10,7 @@ export const filterDomains = (data: Domain[], filters: IFilters) => {
       .includes(filters.search.toLowerCase());
 
     // Check if the selected categories array is empty or if the current item's category matches one of the selected categories.
-    const isCategorySame =
+    const checkedCategories =
       filters.checkedCategories.length === 0 ||
       filters.checkedCategories.includes(item.category);
 
@@ -19,6 +19,6 @@ export const filterDomains = (data: Domain[], filters: IFilters) => {
     //   filters.selectedDomains.length === 0 ||
     //   filters.selectedDomains.includes(item.domain);
 
-    return isCategorySame && isSearchMatch;
+    return checkedCategories && isSearchMatch;
   });
 };

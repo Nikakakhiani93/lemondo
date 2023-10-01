@@ -20,25 +20,14 @@ const FullFilter: React.FC<FilterProps> = ({ domain, onSearch }) => {
   const [pureDomain, setPureDomain] = useState(domain);
   const [matchDomains, setMatchDomains] = useState<boolean>(true);
 
-  useEffect(() => {
-    const applyFilter = (item: { domainName: string }) =>
-      item.domainName.toLowerCase().includes(search.toLowerCase());
+  // useEffect(() => {
+  //   const applyFilter = (item: { domainName: string }) =>
+  //     item.domainName.toLowerCase().includes(search.toLowerCase());
 
-    const filteredList = domain.filter(applyFilter);
-    setPureDomain(filteredList);
-    setMatchDomains(filteredList.length > 0);
-  }, [search, domain]);
-
-  useEffect(() => {
-    const filter: IFilters = {
-      search,
-      // Filters to be passed to the API call
-      selectedDomains: [],
-      checkedCategories: [],
-    };
-
-    onSearch(filter);
-  }, [domain, search, checkedCategories]);
+  //   const filteredList = domain.filter(applyFilter);
+  //   setPureDomain(filteredList);
+  //   setMatchDomains(filteredList.length > 0);
+  // }, [search, domain]);
 
   // Handle search query
   const handleSearch = (query: string) => {
@@ -51,19 +40,30 @@ const FullFilter: React.FC<FilterProps> = ({ domain, onSearch }) => {
     setCategories(newCategories);
   }, [domain]);
 
+  // useEffect(() => {
+  //   const uniqueDomains = [...new Set(domain.map((item) => item.domain))];
+  //   setDomains(uniqueDomains);
+  // }, [domain]);
+
   useEffect(() => {
-    const uniqueDomains = [...new Set(domain.map((item) => item.domain))];
-    setDomains(uniqueDomains);
-  }, [domain]);
+    const filter: IFilters = {
+      search,
+      // Filters to be passed to the API call
+      selectedDomains: [],
+      checkedCategories: checkedCategories,
+    };
+
+    onSearch(filter);
+  });
 
   const handleCategoryChange = (category: string) => {
     // If the category is already checked, uncheck it
     if (checkedCategories.includes(category)) {
-      setCheckedCategories(checkedCategories.filter((c) => c !== category));
+      setCheckedCategories((prev) => prev.filter((c) => c !== category));
 
       // Otherwise, check it
     } else {
-      setCheckedCategories([...checkedCategories, category]);
+      setCheckedCategories((prev) => [...prev, category]);
     }
     // Scroll back to the top of the page once checked
     window.scrollTo(0, 0);
