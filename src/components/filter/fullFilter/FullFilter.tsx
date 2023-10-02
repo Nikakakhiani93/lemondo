@@ -57,7 +57,7 @@ const FullFilter: React.FC<FilterProps> = ({ domain, onSearch }) => {
     };
 
     onSearch(filter);
-  }, [checkedCategories, checkedDomains]);
+  }, [search, checkedCategories, checkedDomains]);
 
   const handleCategoryChange = (category: string) => {
     // If the category is already checked, uncheck it
