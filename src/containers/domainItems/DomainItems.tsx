@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { Domain } from '@/app/core/types/domain.types';
 import { DomainItem } from '@/components/domainItem/DomainItem';
 import { fetchDomain } from '@/app/core/services/domain.service';
@@ -8,8 +9,6 @@ import styles from './DomainItems.module.scss';
 import FullFilter from '@/components/filter/fullFilter/FullFilter';
 import { IFilters } from '@/app/core/types/filter.types';
 import { filterDomains } from '@/app/core/helpers/filter';
-import DomainSort from '@/components/domainSort/DomainSort';
-import WithCategory from '@/components/filter/withCategory/WithCategory';
 
 export default function DomainItems() {
   const [domain, setDomain] = useState<Domain[]>([]);
@@ -60,7 +59,13 @@ export default function DomainItems() {
           </div>
         </div>
       ) : (
-        <div className={styles.NoResults}>
+        <div className={styles.nothingToShow}>
+          <Image
+            src='/images/errorImg.svg'
+            alt='Nothing to show'
+            width={200}
+            height={170}
+          />
           <p>დომენი ვერ მოიძებნა</p>
           <span>
             მითითებული პარამეტრებით დომენების მარკეტში შედეგები ვერ მოიძებნა,
