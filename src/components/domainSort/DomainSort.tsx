@@ -1,15 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './DomainSort.module.scss';
 import Image from 'next/image';
 
-export default function DomainSort() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+type FProps = {
+  onFilterClick(): void;
+};
 
+const DomainSort: FC<FProps> = ({ onFilterClick }) => {
   const handleModal = () => {
-    setIsModalOpen(!isModalOpen);
+    onFilterClick();
   };
+
   return (
     <>
       <div className={styles.domainSort}>
@@ -45,10 +48,11 @@ export default function DomainSort() {
           </span>
         </div>
       </div>
+
       <>
         <div className={styles.mobileSortAndFilter}>
           <button onClick={handleModal}>
-            სორტირება
+            ფილტრი
             <Image
               src='../images/filter.svg'
               alt='logo'
@@ -69,4 +73,6 @@ export default function DomainSort() {
       </>
     </>
   );
-}
+};
+
+export default DomainSort;

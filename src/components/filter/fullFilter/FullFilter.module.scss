@@ -9,8 +9,22 @@
   border-radius: 15px;
 }
 
-@media (max-width: 880px) {
+.shown {
+  display: block;
+}
+
+@media (max-width: 990px) {
   .allInOneFilters {
     display: none;
+  }
+
+  .shown {
+    display: block;
+    max-width: unset;
+    width: unset;
+    margin: unset;
+    padding: unset;
+    box-sizing: unset;
+    border: unset;
   }
 }

@@ -43,6 +43,13 @@
   }
 }
 
+.shown {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+
 @media (max-width: 990px) {
   .domainContainer {
     padding: unset;

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Domain } from '@/app/core/types/domain.types';
 import { DomainItem } from '@/components/domainItem/DomainItem';
@@ -9,8 +9,14 @@ import styles from './DomainItems.module.scss';
 import FullFilter from '@/components/filter/fullFilter/FullFilter';
 import { IFilters } from '@/app/core/types/filter.types';
 import { filterDomains } from '@/app/core/helpers/filter';
+import MobileFilter from '@/modal/mobileFilter/MobileFilter';
 
-export default function DomainItems() {
+type FProps = {
+  isModalVisible: boolean;
+  onFilterClose(): void;
+};
+
+const DomainItems: FC<FProps> = ({ isModalVisible, onFilterClose }) => {
   const [domain, setDomain] = useState<Domain[]>([]);
   const [error, setError] = useState<Error | null>(null);
   const [searchedItems, setSearchedItems] = useState<Domain[]>(domain);
@@ -48,7 +54,11 @@ export default function DomainItems() {
 
   return (
     <div className={styles.domainContainer}>
-      <FullFilter onSearch={onSearch} domain={domain} />
+      <FullFilter
+        onSearch={onSearch}
+        domain={domain}
+        isContentVisible={false}
+      />
 
       {searchedItems.length > 0 ? (
         <div className={styles.domainItemsList}>
@@ -73,6 +83,15 @@ export default function DomainItems() {
           </span>
         </div>
       )}
+      <div className={isModalVisible ? styles.shown : styles.hidden}>
+        <MobileFilter
+          onClose={onFilterClose}
+          onFltrApply={onSearch}
+          domain={domain}
+        />
+      </div>
     </div>
   );
-}
+};
+
+export default DomainItems;

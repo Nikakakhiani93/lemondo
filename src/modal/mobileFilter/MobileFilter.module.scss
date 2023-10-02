@@ -1,0 +1,48 @@
+.modal {
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 88;
+  overflow-y: scroll;
+  position: fixed;
+  height: 100%;
+  padding: 12px 20px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 12px;
+  box-shadow: 0px 2px 1px #0000000f;
+  margin: 0 -20px 30px;
+  span {
+    font-size: 16px;
+    color: #696974;
+    font-weight: 500;
+    margin: 0;
+  }
+}
+
+.approveButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+  margin: 0 -20px;
+  box-shadow: 0px -1px 2px #00000014;
+  button {
+    font-size: 16px;
+    color: #ffffff;
+    background: #99cc66;
+    border-radius: 10px;
+    padding: 17px 0;
+    border: none;
+    width: 100%;
+    max-width: 335px;
+  }
+}

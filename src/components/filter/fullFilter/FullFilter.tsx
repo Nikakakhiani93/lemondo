@@ -12,10 +12,15 @@ import WithSymbol from '../withSymbol/WithSymbol';
 
 interface FilterProps {
   domain: Domain[];
+  isContentVisible?: boolean;
   onSearch: (filters: IFilters) => void;
 }
 
-const FullFilter: React.FC<FilterProps> = ({ domain, onSearch }) => {
+const FullFilter: React.FC<FilterProps> = ({
+  domain,
+  onSearch,
+  isContentVisible = false,
+}) => {
   const [domains, setDomains] = useState<string[]>([]);
   const [search, setSearch] = useState('');
   const [priceRange, setPriceRange] = useState<number[]>([10000, 35000]);
@@ -99,7 +104,11 @@ const FullFilter: React.FC<FilterProps> = ({ domain, onSearch }) => {
   };
 
   return (
-    <div className={styles.allInOneFilters}>
+    <div
+      className={`${styles.allInOneFilters}  ${
+        isContentVisible ? styles.shown : ''
+      }`}
+    >
       <WithName onSearch={handleSearch} />
       <WithPrice
         min={0}
