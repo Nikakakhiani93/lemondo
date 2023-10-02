@@ -14,7 +14,7 @@ const withDomain: React.FC<DomainFilterProps> = ({
 }) => {
   return (
     <div className={styles.CategoryContainer}>
-      <h2>დომენის ზონა</h2>
+      <span>დომენის ზონა</span>
       <div className={styles.CategoryItems}>
         {domains.map((domain) => (
           <label key={domain}>
