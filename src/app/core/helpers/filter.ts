@@ -15,10 +15,10 @@ export const filterDomains = (data: Domain[], filters: IFilters) => {
       filters.checkedCategories.includes(item.category);
 
     // Check if the selected domains array is empty or if the current item's domain matches one of the selected domains.
-    // const isDomainMatch =
-    //   filters.selectedDomains.length === 0 ||
-    //   filters.selectedDomains.includes(item.domain);
+    const checkedDomains =
+      filters.checkedDomains.length === 0 ||
+      filters.checkedDomains.includes(item.domain);
 
-    return checkedCategories && isSearchMatch;
+    return checkedCategories && isSearchMatch && checkedDomains;
   });
 };
