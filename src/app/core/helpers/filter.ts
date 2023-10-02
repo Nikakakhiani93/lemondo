@@ -14,11 +14,14 @@ export const filterDomains = (data: Domain[], filters: IFilters) => {
       filters.checkedCategories.length === 0 ||
       filters.checkedCategories.includes(item.category);
 
+    const priceMatch =
+      item.priceGel >= filters.minPrice && item.priceGel <= filters.maxPrice;
+
     // Check if the selected domains array is empty or if the current item's domain matches one of the selected domains.
     const checkedDomains =
       filters.checkedDomains.length === 0 ||
       filters.checkedDomains.includes(item.domain);
 
-    return checkedCategories && isSearchMatch && checkedDomains;
+    return isSearchMatch && priceMatch && checkedDomains && checkedCategories;
   });
 };

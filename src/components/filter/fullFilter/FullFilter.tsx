@@ -7,6 +7,7 @@ import { Domain } from '@/app/core/types/domain.types';
 import WithName from '@/components/filter/withName/WithName';
 import { IFilters } from '@/app/core/types/filter.types';
 import WithDomain from '../withDomain/WithDomain';
+import WithPrice from '../withPrice/WithPrice';
 
 interface FilterProps {
   domain: Domain[];
@@ -16,9 +17,9 @@ interface FilterProps {
 const FullFilter: React.FC<FilterProps> = ({ domain, onSearch }) => {
   const [domains, setDomains] = useState<string[]>([]);
   const [search, setSearch] = useState('');
+  const [priceRange, setPriceRange] = useState<number[]>([10000, 35000]);
   const [categories, setCategories] = useState<string[]>([]);
   const [checkedDomains, setCheckedDomains] = useState<string[]>([]);
-
   const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
   const [pureDomain, setPureDomain] = useState(domain);
   const [matchDomains, setMatchDomains] = useState<boolean>(true);
@@ -52,12 +53,18 @@ const FullFilter: React.FC<FilterProps> = ({ domain, onSearch }) => {
     const filter: IFilters = {
       search,
       // Filters to be passed to the API call
-      checkedDomains: checkedDomains,
+      minPrice: priceRange[0],
+      maxPrice: priceRange[1],
       checkedCategories: checkedCategories,
+      checkedDomains: checkedDomains,
     };
 
     onSearch(filter);
-  }, [search, checkedCategories, checkedDomains]);
+  }, [search, priceRange, checkedCategories, checkedDomains]);
+
+  const handlePriceChange = (values: number[]) => {
+    setPriceRange(values);
+  };
 
   const handleCategoryChange = (category: string) => {
     // If the category is already checked, uncheck it
@@ -84,6 +91,12 @@ const FullFilter: React.FC<FilterProps> = ({ domain, onSearch }) => {
   return (
     <div className={styles.allInOneFilters}>
       <WithName onSearch={handleSearch} />
+      <WithPrice
+        min={0}
+        max={50000}
+        values={priceRange}
+        onChange={handlePriceChange}
+      />
       <WithCategory
         categories={categories}
         checkedCategories={checkedCategories}
