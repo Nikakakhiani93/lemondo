@@ -85,3 +85,25 @@
     display: none;
   }
 }
+
+@media (max-width: 990px) {
+  .domainItem {
+    .nameSide {
+      span {
+        font-size: 14px;
+      }
+    }
+    .amountSide {
+      .domainPrice {
+        margin-right: 15px;
+        .gel {
+          font-size: 14px;
+        }
+
+        .usd {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}

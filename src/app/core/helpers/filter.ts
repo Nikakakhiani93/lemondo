@@ -17,11 +17,23 @@ export const filterDomains = (data: Domain[], filters: IFilters) => {
     const priceMatch =
       item.priceGel >= filters.minPrice && item.priceGel <= filters.maxPrice;
 
+    const symbolLength =
+      // Check if the length of the domainName is greater than or equal to the minLenght filter
+      item.domainName.length >= filters.minLenght &&
+      // Check if the length of the domainName is less than or equal to the maxLenght filter
+      item.domainName.length <= filters.maxLenght;
+
     // Check if the selected domains array is empty or if the current item's domain matches one of the selected domains.
     const checkedDomains =
       filters.checkedDomains.length === 0 ||
       filters.checkedDomains.includes(item.domain);
 
-    return isSearchMatch && priceMatch && checkedDomains && checkedCategories;
+    return (
+      isSearchMatch &&
+      priceMatch &&
+      symbolLength &&
+      checkedDomains &&
+      checkedCategories
+    );
   });
 };

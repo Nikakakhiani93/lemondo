@@ -4,4 +4,6 @@ export interface IFilters {
   maxPrice: number;
   checkedCategories: any;
   checkedDomains: any;
+  minLenght: number;
+  maxLenght: number;
 }

@@ -44,8 +44,34 @@
   }
 }
 
+.mobileSortAndFilter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 20px;
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #ffffff;
+    border: 1px solid #e5e5ed;
+    border-radius: 10px;
+    padding: 12px 18px;
+    img {
+      padding-left: 28px;
+    }
+  }
+}
+
 @media (max-width: 990px) {
   .domainSort {
+    display: none;
+  }
+}
+
+@media (min-width: 989px) {
+  .mobileSortAndFilter {
     display: none;
   }
 }

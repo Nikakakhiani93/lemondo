@@ -8,6 +8,7 @@ import WithName from '@/components/filter/withName/WithName';
 import { IFilters } from '@/app/core/types/filter.types';
 import WithDomain from '../withDomain/WithDomain';
 import WithPrice from '../withPrice/WithPrice';
+import WithSymbol from '../withSymbol/WithSymbol';
 
 interface FilterProps {
   domain: Domain[];
@@ -18,6 +19,7 @@ const FullFilter: React.FC<FilterProps> = ({ domain, onSearch }) => {
   const [domains, setDomains] = useState<string[]>([]);
   const [search, setSearch] = useState('');
   const [priceRange, setPriceRange] = useState<number[]>([10000, 35000]);
+  const [charRange, setCharRange] = useState<number[]>([4, 21]);
   const [categories, setCategories] = useState<string[]>([]);
   const [checkedDomains, setCheckedDomains] = useState<string[]>([]);
   const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
@@ -51,19 +53,27 @@ const FullFilter: React.FC<FilterProps> = ({ domain, onSearch }) => {
 
   useEffect(() => {
     const filter: IFilters = {
-      search,
       // Filters to be passed to the API call
+      search,
       minPrice: priceRange[0],
       maxPrice: priceRange[1],
+      minLenght: charRange[0],
+      maxLenght: charRange[1],
       checkedCategories: checkedCategories,
       checkedDomains: checkedDomains,
     };
 
     onSearch(filter);
-  }, [search, priceRange, checkedCategories, checkedDomains]);
+  }, [search, priceRange, charRange, checkedCategories, checkedDomains]);
 
   const handlePriceChange = (values: number[]) => {
+    // set the price range to the values passed in
     setPriceRange(values);
+  };
+
+  const handleCharChange = (values: number[]) => {
+    // set the character range to the values passed in
+    setCharRange(values);
   };
 
   const handleCategoryChange = (category: string) => {
@@ -96,6 +106,12 @@ const FullFilter: React.FC<FilterProps> = ({ domain, onSearch }) => {
         max={50000}
         values={priceRange}
         onChange={handlePriceChange}
+      />
+      <WithSymbol
+        min={0}
+        max={26}
+        values={charRange}
+        onChange={handleCharChange}
       />
       <WithCategory
         categories={categories}

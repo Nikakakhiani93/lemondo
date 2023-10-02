@@ -8,3 +8,9 @@
   border: 1px solid #f1f1f5;
   border-radius: 15px;
 }
+
+@media (max-width: 880px) {
+  .allInOneFilters {
+    display: none;
+  }
+}

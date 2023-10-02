@@ -67,8 +67,9 @@ const Header: React.FC = () => {
               </li>
               <li>
                 {' '}
-                <a href='#'>
+                <a href='#' className={styles.mobileBadge}>
                   <img src='images/cart.svg' alt='' />
+                  <div className={styles.cartBadge}>{ItemCount}</div>
                 </a>
               </li>
               <li>

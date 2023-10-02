@@ -42,3 +42,16 @@
     }
   }
 }
+
+@media (max-width: 990px) {
+  .domainContainer {
+    padding: unset;
+    margin-top: 17px;
+    .domainItemsList {
+      max-width: unset;
+      border-radius: unset;
+      margin: unset;
+      padding: 10px 20px;
+    }
+  }
+}
